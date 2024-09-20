@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>匯率計算器</title>
+    <style>
+      body {
+        font-family: "Microsoft JhengHei", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      h2,
+      h3 {
+        color: #4a90e2;
+        text-align: center;
+      }
+
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4a90e2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      button:hover {
+        background-color: #357ab8;
+      }
+
+      #result {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #e94e77;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        form {
+          padding: 15px;
+        }
+
+        button {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>匯率計算器</h2>
+    <form id="feeCalculator">
+      <label for="krw">韓元金額：</label>
+      <input type="number" id="krw" placeholder="輸入韓元金額" required />
+      <label for="rate">匯率：</label>
+      <input type="number" id="rate" value="0.025" step="0.001" required />
+      <label for="feeRate">手續費(%)：</label>
+      <input type="number" id="feeRate" value="3" step="0.01" readonly />
+      <button type="button" onclick="calculateNTD()">計算新台幣金額</button>
+      <h3>金額：</h3>
+      <p id="result"></p>
+    </form>
+
+    <script>
+      function calculateNTD() {
+        const krw = parseFloat(document.getElementById("krw").value);
+        const rate = parseFloat(document.getElementById("rate").value);
+        const feeRate =
+          parseFloat(document.getElementById("feeRate").value) / 100;
+
+        // 換算韓元到新台幣
+        const ntdWithoutFee = krw * rate;
+
+        // 計算手續費
+        const fee = ntdWithoutFee * feeRate;
+
+        // 總金額
+        const totalNTD = ntdWithoutFee + fee;
+
+        // 顯示結果
+        document.getElementById("result").textContent =
+          totalNTD.toFixed(2) + " 元";
+      }
+    </script>
+  </body>
+</html>

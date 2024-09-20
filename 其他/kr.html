@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>韓元換算台幣</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- 引入 Bootstrap Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Microsoft JhengHei", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #4a90e2;
+        margin-bottom: 20px;
+      }
+
+      .price-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+        width: 100%;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .input-container span {
+        font-weight: bold;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4a90e2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+        letter-spacing: 1.8px;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      button:hover {
+        background-color: #357ab8;
+      }
+
+      #result {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #e94e77;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .over-budget {
+        background-color: #f8d7da;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: none;
+        color: #721c24;
+        text-align: center;
+      }
+
+      .over-budget.show {
+        display: block;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      function convertKRWtoTWD(krw) {
+        const exchangeRate = 0.024; // 假設匯率為 1 韓元 = 0.024 台幣
+        const twd = Math.ceil(krw * exchangeRate); // 無條件進位到整數
+        return twd;
+      }
+
+      function handleCheckboxChange(checkbox) {
+        const itemId = checkbox.value;
+        const inputContainer = document.getElementById("inputContainer");
+        const itemPrices = {
+          本月優惠: 31900,
+          CORETOX: 64900,
+          唾液線: 132000,
+          紅血絲激光: 64900,
+          黑頭管理: 55000,
+          奶油煥膚: 64900,
+          毛孔收縮針2cc: 75900,
+        };
+
+        if (checkbox.checked) {
+          const itemLabel = document.createElement("span");
+          itemLabel.textContent = `${itemId}：`;
+          itemLabel.dataset.itemId = itemId;
+
+          const input = document.createElement("input");
+          input.type = "number";
+          input.className = "krwAmount";
+          input.placeholder = `輸入 ${itemId} 金額`;
+          input.dataset.itemId = itemId;
+          input.value = itemPrices[itemId]; // 自動填入金額
+
+          inputContainer.appendChild(itemLabel);
+          inputContainer.appendChild(input);
+        } else {
+          const elements = inputContainer.querySelectorAll(
+            `[data-item-id="${itemId}"]`
+          );
+          elements.forEach((element) => inputContainer.removeChild(element));
+        }
+      }
+
+      function handleConversion() {
+        const krwAmounts = document.querySelectorAll(".krwAmount");
+        let totalKrw = 0;
+        krwAmounts.forEach((input) => {
+          totalKrw += parseFloat(input.value) || 0;
+        });
+        const twdAmount = convertKRWtoTWD(totalKrw);
+        document.getElementById(
+          "result"
+        ).innerText = `總共 ${totalKrw} 韓元換算成台幣為 ${twdAmount} 元`;
+
+        const budgetWarning = document.getElementById("budgetWarning");
+        if (twdAmount > 7000) {
+          budgetWarning.classList.add("show");
+        } else {
+          budgetWarning.classList.remove("show");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="price-list">
+      <h1>PRICE</h1>
+      <label>
+        <input
+          type="checkbox"
+          value="本月優惠"
+          onchange="handleCheckboxChange(this)"
+        />
+        本月優惠：31900
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          value="CORETOX"
+          onchange="handleCheckboxChange(this)"
+        />
+        臉CORETOX：64900
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          value="唾液線"
+          onchange="handleCheckboxChange(this)"
+        />
+        唾液線：132000
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          value="紅血絲激光"
+          onchange="handleCheckboxChange(this)"
+        />
+        紅血絲激光：64900
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          value="黑頭管理"
+          onchange="handleCheckboxChange(this)"
+        />
+        黑頭管理：55000
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          value="奶油煥膚"
+          onchange="handleCheckboxChange(this)"
+        />
+        奶油煥膚：64900
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value="毛孔收縮針2cc"
+          onchange="handleCheckboxChange(this)"
+        />
+        毛孔收縮針2cc：75900
+      </label>
+    </div>
+    <div id="inputContainer" class="input-container"></div>
+    <button onclick="handleConversion()">換算</button>
+    <p id="result"></p>
+    <div id="budgetWarning" class="over-budget">
+      <i class="bi bi-exclamation-triangle-fill"></i> 已超出預算
+    </div>
+    <!-- 引入 Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Radio Buttons</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .radio-buttons-wrapper {
+      clear: both;
+      display: inline-block;
+    }
+
+    .radio-button {
+      display: none;
+    }
+
+    .radio-button + label {
+      float: left;
+      padding: 4px 20px;
+      cursor: pointer;
+      border: 2px solid #AEAEB2;
+      margin-right: -1px;
+      color: #333333;
+      background-color: #ffffff;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .radio-button + label:first-of-type {
+      border-radius: 2em 0 0 2em;
+    }
+
+    .radio-button + label:last-of-type {
+      border-radius: 0 2em 2em 0;
+    }
+    .radio-button + label::before {
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-right: 10px;
+      border-radius: 50%;
+      border: 2px solid #AEAEB2;
+      background-color: #ffffff;
+    }
+    .radio-button:checked + label::before {
+        border: 2px solid #9B7C67;
+    }
+
+    .radio-button:checked + label {
+        background-color: #B79C7D;
+        font-weight: bold;
+        color: white;
+        border: 2px solid #9B7C67;
+    }
+
+
+    .radio-button:checked + label::after {
+      content: "";
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background-color: #9B7C67;
+      position: absolute;
+      top: 50%;
+      left: 28px;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="radio-buttons-wrapper">
+    <input type="radio" class="radio-button" name="radioButton" value="1" id="button1" />
+    <label for="button1">定期</label>
+    <input type="radio" class="radio-button" name="radioButton" value="2" id="button2" />
+    <label for="button2">機動</label>
+    <input type="radio" class="radio-button" name="radioButton" value="3" id="button3" />
+    <label for="button3">雨天</label>
+  </div>
+  
+</body>
+</html>
+

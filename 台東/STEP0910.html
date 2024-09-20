@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .form-step {
+          display: none;
+        }
+        .form-step.active {
+          display: block;
+        }
+      }
+
+      /* 電腦版，表單顯示為一長條 */
+      @media (min-width: 769px) {
+        .form-step {
+          display: block;
+        }
+
+        .form-navigation {
+          display: none; /* 隱藏導航按鈕 */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form id="multiStepForm">
+      <div class="form-step">
+        <h2>表單第1部分</h2>
+        <input type="text" placeholder="輸入內容 1" />
+        <br />
+        <br />
+        <label for="op">選項選項</label>
+        <select id="op">
+          <option value="">選項一</option>
+          <option value="">選項二</option>
+          <option value="">選項三</option>
+        </select>
+        <br />
+        <br />
+      </div>
+
+      <div class="form-step">
+        <h2>表單第2部分</h2>
+        <input type="text" placeholder="輸入內容 2" />
+      </div>
+
+      <div class="form-step">
+        <h2>表單第3部分</h2>
+        <input type="text" placeholder="輸入內容 3" />
+      </div>
+
+      <div class="form-step">
+        <h2>表單第4部分</h2>
+        <input type="text" placeholder="輸入內容 4" />
+      </div>
+
+      <div class="form-navigation">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">
+          上一頁
+        </button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">下一頁</button>
+        <button type="submit" id="submitBtn" style="display: none">提交</button>
+      </div>
+    </form>
+
+    <script>
+      let currentStep = 0; // 記錄當前表單的頁面
+      const steps = document.getElementsByClassName("form-step");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        showStep(currentStep); // 預設顯示第一個區塊
+      });
+
+      function showStep(step) {
+        // 隱藏所有區塊
+        for (let i = 0; i < steps.length; i++) {
+          steps[i].classList.remove("active");
+        }
+        // 顯示當前的區塊
+        steps[step].classList.add("active");
+
+        // 更新按鈕顯示邏輯
+        document.getElementById("prevBtn").style.display =
+          step === 0 ? "none" : "inline";
+        if (step === steps.length - 1) {
+          document.getElementById("nextBtn").style.display = "none";
+          document.getElementById("submitBtn").style.display = "inline";
+        } else {
+          document.getElementById("nextBtn").style.display = "inline";
+          document.getElementById("submitBtn").style.display = "none";
+        }
+      }
+
+      function nextPrev(direction) {
+        currentStep += direction;
+        // 確保不會超出範圍
+        if (currentStep >= steps.length) {
+          currentStep = steps.length - 1;
+        }
+        if (currentStep < 0) {
+          currentStep = 0;
+        }
+        showStep(currentStep);
+      }
+    </script>
+  </body>
+</html>

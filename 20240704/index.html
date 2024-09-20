@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Radio Buttons</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style>
+    .radio-buttons-wrapper {
+      clear: both;
+      display: inline-block;
+    }
+
+    /* Hide the actual radio buttons */
+    .radio-button input[type="radio"] {
+      display: none;
+    }
+
+    /* Label styling */
+    .radio-button label {
+      float: left;
+      padding: 4px 20px;
+      cursor: pointer;
+      border: 2px solid #AEAEB2;
+      margin-right: -1px;
+      color: #333333;
+      background-color: #ffffff;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Round corners for the first and last labels */
+    .radio-button:first-of-type label {
+      border-radius: 2em 0 0 2em;
+    }
+
+    .radio-button:last-of-type label {
+      border-radius: 0 2em 2em 0;
+    }
+
+    /* Radio button custom appearance */
+    .radio-button input[type="radio"] + label::before {
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-right: 10px;
+      border-radius: 50%;
+      border: 2px solid #AEAEB2;
+      background-color: #ffffff;
+    }
+
+    /* Checked state appearance */
+    .radio-button input[type="radio"]:checked + label::before {
+      border: 2px solid #9B7C67;
+    }
+
+    .radio-button input[type="radio"]:checked + label {
+      background-color: #B79C7D;
+      font-weight: bold;
+      color: white;
+      border: 2px solid #9B7C67;
+    }
+
+    .radio-button input[type="radio"]:checked + label::after {
+      content: "";
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background-color: #9B7C67;
+      position: absolute;
+      top: 50%;
+      left: 28px;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="radio-buttons-wrapper">
+    <span class="radio-button">
+      <input id="RBG002_1" type="radio" name="ctl00$ContentPlaceHolder1$a" value="1" />
+      <label for="RBG002_1">定期</label>
+    </span>
+
+    <span class="radio-button">
+      <input id="RBG002_2" type="radio" name="ctl00$ContentPlaceHolder1$a" value="2" />
+      <label for="RBG002_2">機動</label>
+    </span>
+  </div>
+</body>
+</html>

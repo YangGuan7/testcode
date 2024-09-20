@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Checkboxes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .check-buttons-wrapper{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .check-button{
+            clear: both;
+            display: inline-block;
+        }
+        .check-button label {
+            background-color: #ffffff;
+            border: 2px solid #AEAEB2;
+            border-radius: 3px;
+            padding: 4px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .check-button input[type="checkbox"] {
+            display: none;
+        }
+        .check-button label::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            border: 2px solid #AEAEB2;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+        .check-button input[type="checkbox"]:checked + label::before {
+            content: "\f14a";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #ffffff; /* 白色 */
+            background-color: #9B7C67; /* 黑色勾的背景色 */
+            border: 2px solid #9B7C67;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .check-button input[type="checkbox"]:checked + label {
+            background-color: #B79C7D;
+            border: 2px solid #9B7C67;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="check-buttons-wrapper">
+    <span class="check-button">
+        <input id="ContentPlaceHolder1_CBTB14" type="checkbox" name="ctl00$ContentPlaceHolder1$CBTB14" />
+        <label for="ContentPlaceHolder1_CBTB14">土石流潛勢溪流</label>
+    </span>
+    <span class="check-button">
+        <input id="ContentPlaceHolder1_CBTB141" type="checkbox" name="ctl00$ContentPlaceHolder1$CBTB141" />
+        <label for="ContentPlaceHolder1_CBTB141">順向坡</label>
+    </span>
+    <span class="check-button">
+        <input id="ContentPlaceHolder1_CBTB142" type="checkbox" name="ctl00$ContentPlaceHolder1$CBTB142" />
+        <label for="ContentPlaceHolder1_CBTB142">山崩地滑</label>
+    </span>
+    <span class="check-button">
+        <input id="ContentPlaceHolder1_CBTB143" type="checkbox" name="ctl00$ContentPlaceHolder1$CBTB143" />
+        <label for="ContentPlaceHolder1_CBTB143">鄰近或通過之斷層</label>
+    </span>
+    <span class="check-button">
+        <input id="ContentPlaceHolder1_CBTB144" type="checkbox" name="ctl00$ContentPlaceHolder1$CBTB144" />
+        <label for="ContentPlaceHolder1_CBTB144">無上述項目</label>
+    </span></div>
+</body>
+</html>

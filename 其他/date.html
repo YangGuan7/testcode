@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>倒數計時</title>
+    <style>
+      body {
+        font-family: "Microsoft JhengHei", sans-serif;
+        letter-spacing: 1.6px;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>倒數計時</h1>
+    <div id="countdownContainer"></div>
+
+    <script>
+      const dates = [
+        {
+          label: "2024/8/29",
+          date: "2024-08-29",
+        },
+        {
+          label: "2024/8/17",
+          date: "2024-08-17",
+        },
+        {
+          label: "2024/12/25",
+          date: "2024-12-25",
+        },
+        {
+          label: "2024/2/25",
+          date: "2024-02-25",
+        },
+      ];
+
+      function calculateDaysUntil(targetDate) {
+        const today = new Date();
+        const target = new Date(targetDate);
+        const timeDifference = target - today;
+        const daysDifference = Math.ceil(
+          timeDifference / (1000 * 60 * 60 * 24)
+        );
+        return daysDifference;
+      }
+
+      function calculateBusinessDaysUntil(targetDate) {
+        const today = new Date();
+        const target = new Date(targetDate);
+        let businessDays = 0;
+
+        while (today < target) {
+          today.setDate(today.getDate() + 1);
+          const dayOfWeek = today.getDay();
+          if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+            businessDays++;
+          }
+        }
+
+        return businessDays;
+      }
+
+      function updateCountdowns() {
+        const countdownContainer =
+          document.getElementById("countdownContainer");
+        countdownContainer.innerHTML = ""; // 清空容器
+
+        dates.forEach((dateInfo, index) => {
+          const countdownElement = document.createElement("p");
+          const businessCountdownElement = document.createElement("p");
+          const daysUntilDate = calculateDaysUntil(dateInfo.date);
+          const businessDaysUntilDate = calculateBusinessDaysUntil(
+            dateInfo.date
+          );
+
+          if (daysUntilDate >= 0) {
+            countdownElement.innerText = `距離 ${dateInfo.label} 還有 ${daysUntilDate} 天 ,再上班 ${businessDaysUntilDate} 天`;
+            // businessCountdownElement.innerText = `再上班 ${businessDaysUntilDate} 天`;
+          } else {
+            countdownElement.innerText = `${dateInfo.label} 已經過了 ${Math.abs(
+              daysUntilDate
+            )} 天`;
+            businessCountdownElement.innerText = `${
+              dateInfo.label
+            } 已經過了 ${Math.abs(businessDaysUntilDate)} 個工作天`;
+          }
+
+          countdownContainer.appendChild(countdownElement);
+          countdownContainer.appendChild(businessCountdownElement);
+        });
+      }
+
+      updateCountdowns();
+    </script>
+  </body>
+</html>

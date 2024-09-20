@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="surveyForm">
+      <label>
+        <input type="checkbox" name="option" value="Option1" /> 选项1
+      </label>
+      <label>
+        <input type="checkbox" name="option" value="Option2" /> 选项2
+      </label>
+      <label>
+        <input type="checkbox" name="option" value="other" id="otherCheckbox" />
+        其他
+        <input type="text" id="otherInput" placeholder="请填写其他选项" />
+      </label>
+    </form>
+
+    <script>
+      var otherCheckbox = document.getElementById("otherCheckbox");
+      var otherInput = document.getElementById("otherInput");
+
+      // 当输入框内容改变时执行的函数
+      otherInput.addEventListener("input", function () {
+        if (otherInput.value.trim() !== "") {
+          otherCheckbox.checked = true; // 输入框有值时自动勾选复选框
+        } else {
+          otherCheckbox.checked = false; // 输入框为空时取消勾选复选框
+        }
+      });
+    </script>
+  </body>
+</html>

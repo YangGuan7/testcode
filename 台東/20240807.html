@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="status-content" class="search-content">
+      <div class="chart">
+        <div class="title">
+          水保申請案件行政區案件狀態統計表
+          <a href="#">
+            <img src="../images/icon/download.svg" alt="Download" />
+          </a>
+        </div>
+        <div class="btn-group">
+          <button class="search-period active" onclick="Btn_Period_Click()">
+            迄今
+          </button>
+          <button class="search-period" onclick="Btn_Period_Click()">
+            今年
+          </button>
+          <button class="search-period" onclick="Btn_Period_Click()">
+            3個月
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>
+                <div class="straight">受理中</div>
+              </th>
+              <th>
+                <div class="straight">審查中</div>
+              </th>
+              <th>
+                <div class="straight">已核定</div>
+              </th>
+              <th>
+                <div class="straight">施工中</div>
+              </th>
+              <th>
+                <div class="straight">已完工</div>
+              </th>
+              <th>
+                <div class="straight">已廢止</div>
+              </th>
+              <th>
+                <div class="straight">小計</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 臺東市 -->
+            <tr>
+              <th>臺東市</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 成功鎮 -->
+            <tr>
+              <th>成功鎮</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 關山鎮 -->
+            <tr>
+              <th>關山鎮</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 卑南鄉 -->
+            <tr>
+              <th>卑南鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 大武鄉 -->
+            <tr>
+              <th>大武鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 太麻里鄉 -->
+            <tr>
+              <th>太麻里鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 東河鄉 -->
+            <tr>
+              <th>東河鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 長濱鄉 -->
+            <tr>
+              <th>長濱鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 鹿野鄉 -->
+            <tr>
+              <th>鹿野鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 池上鄉 -->
+            <tr>
+              <th>池上鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 綠島鄉 -->
+            <tr>
+              <th>綠島鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 延平鄉 -->
+            <tr>
+              <th>延平鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 海端鄉 -->
+            <tr>
+              <th>海端鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 達仁鄉 -->
+            <tr>
+              <th>達仁鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 金峰鄉 -->
+            <tr>
+              <th>金峰鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+            <!-- 蘭嶼鄉 -->
+            <tr>
+              <th>蘭嶼鄉</th>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+              <td>
+                <button class="link-button" onclick="LinkButton_Click()">
+                  0
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

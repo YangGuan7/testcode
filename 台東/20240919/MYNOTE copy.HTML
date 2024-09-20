@@ -1,0 +1,931 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterPage.master"
+AutoEventWireup="true" CodeFile="MyNotice.aspx.cs" Inherits="BaseData_MyNotice"
+%>
+
+<asp:Content
+  ID="Content1"
+  ContentPlaceHolderID="ContentPlaceHolderHead"
+  Runat="Server"
+>
+</asp:Content>
+<asp:Content
+  ID="Content2"
+  ContentPlaceHolderID="ContentPlaceHolder1"
+  Runat="Server"
+>
+  <div class="big-container">
+    <h1>
+      <img src="../images/icon/document.svg" alt="" />
+      我的待辦-<span class="js-accountType">待辦報表</span>
+    </h1>
+    <div class="square-tab-wrap js-tab-wrap" data-tab="A">
+      <div class="square-tab js-tab active js-type">
+        <img src="../images/icon/account-1w.svg" alt="" />
+        待辦報表
+      </div>
+      <div class="square-tab js-tab js-type">
+        <img src="../images/icon/account-2.svg" alt="" />
+        簽核中報表
+      </div>
+
+    </div>
+    <!-- 內部帳號 欄位要再確認-->
+    <div class="tab-content js-tab-contentA">
+      <section>
+        <div class="search-wrap border-wrap">
+          <div>
+            <div class="search-content">
+
+                <div class="search-group check-btn-wrap">
+                    <div class="title">
+                        <label class="text">狀 態</label>
+                        <span>：</span>
+                    </div>
+                    <div class="check-btn">
+                        <input type="checkbox" id="status1">
+                        <label for="status1">退文</label>
+                        <input type="checkbox" id="status2">
+                        <label for="status2">陳核中</label>
+                        <input type="checkbox" id="status3">
+                        <label for="status3">待簽辦</label>
+                        <input type="checkbox" id="status4">
+                        <label for="status4">暫存中</label>
+                        <input type="checkbox" id="status5">
+                        <label for="status5">待覆閱</label>
+                        <input type="checkbox" id="status6">
+                        <label for="status6">覆閱中</label>
+                    </div>
+                </div>
+              
+              <div class="search-btn-wrap">
+                <button
+                  id="BTN_UserList_County_Government_Select"
+                  class="search-btn"
+                  onclick="BTNSelect_Click()"
+                >
+                  查詢
+                </button>
+                <button
+                  id="BTN_UserList_County_Government_Clear"
+                  class="search-cancel-btn"
+                  onclick="BTNClear_Click()"
+                >
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="listUp-btn-wrap">
+          <div></div>
+          <div class="listUp-count">
+            查詢件數：<asp:Label
+              runat="server"
+              ID="L_UserList_County_Government_Count"
+              Text="0"
+            />筆
+          </div>
+        </div>
+        <!-- 一次顯示十筆 -->
+        <div class="list-table-wrap">
+          <div>
+            <table
+              class="list-table"
+              cellspacing="0"
+              rules="all"
+              border="1"
+              id="ContentPlaceHolder1_GV_UserList_County_Government"
+              style="border-collapse: collapse"
+            >
+              <tr>
+                <th scope="col">案件編號</th>
+                <th scope="col">申請單編號</th>
+                <th scope="col">地籍</th>
+                <th scope="col">申請單名稱</th>
+                <th scope="col">陳送人</th>
+                <th scope="col">收件狀態</th>
+              </tr>
+
+              <!-- 待簽辦 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="待簽辦"
+                    class="todo-status todo-lightBlue fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 退　文 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="退　文"
+                    class="todo-status todo-red fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 待覆閱 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="待覆閱"
+                    class="todo-status todo-green fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 暫存中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="暫存中"
+                    class="todo-status todo-darkBlue fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 覆閱中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="覆閱中"
+                    class="todo-status todo-purple"
+                  />
+                </td>
+              </tr>
+
+              <!-- 陳核中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="陳核中"
+                    class="todo-status todo-yellow"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 鄉公所帳號 -->
+    <div class="tab-content js-tab-contentA none">
+        <section>
+          <div class="search-wrap border-wrap">
+            <div>
+              <div class="search-content">
+  
+                  <div class="search-group check-btn-wrap">
+                      <div class="title">
+                          <label class="text">狀 態</label>
+                          <span>：</span>
+                      </div>
+                      <div class="check-btn">
+                          <input type="checkbox" id="status1">
+                          <label for="status1">退文</label>
+                          <input type="checkbox" id="status2">
+                          <label for="status2">陳核中</label>
+                          <input type="checkbox" id="status3">
+                          <label for="status3">待簽辦</label>
+                          <input type="checkbox" id="status4">
+                          <label for="status4">暫存中</label>
+                          <input type="checkbox" id="status5">
+                          <label for="status5">待覆閱</label>
+                          <input type="checkbox" id="status6">
+                          <label for="status6">覆閱中</label>
+                      </div>
+                  </div>
+                
+                <div class="search-btn-wrap">
+                  <button
+                    id="BTN_UserList_County_Government_Select"
+                    class="search-btn"
+                    onclick="BTNSelect_Click()"
+                  >
+                    查詢
+                  </button>
+                  <button
+                    id="BTN_UserList_County_Government_Clear"
+                    class="search-cancel-btn"
+                    onclick="BTNClear_Click()"
+                  >
+                    清除
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="listUp-btn-wrap">
+            <div></div>
+            <div class="listUp-count">
+              查詢件數：<asp:Label
+                runat="server"
+                ID="t"
+                Text="0"
+              />筆
+            </div>
+          </div>
+          <!-- 一次顯示十筆 -->
+          <div class="list-table-wrap">
+            <div>
+              <table
+                class="list-table"
+                cellspacing="0"
+                rules="all"
+                border="1"
+                id="ContentPlaceHolder1_GV_UserList_County_Government"
+                style="border-collapse: collapse"
+              >
+                <tr>
+                  <th scope="col">案件編XX號</th>
+                  <th scope="col">申請單編號</th>
+                  <th scope="col">地籍</th>
+                  <th scope="col">申請單名稱</th>
+                  <th scope="col">陳送人</th>
+                  <th scope="col">收件狀態</th>
+                </tr>
+  
+                <!-- 待簽辦 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="待簽辦"
+                      class="todo-status todo-lightBlue fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 退　文 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="退　文"
+                      class="todo-status todo-red fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 待覆閱 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="待覆閱"
+                      class="todo-status todo-green fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 暫存中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="暫存中"
+                      class="todo-status todo-darkBlue fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 覆閱中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="覆閱中"
+                      class="todo-status todo-purple"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 陳核中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="陳核中"
+                      class="todo-status todo-yellow"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+  </div>
+</asp:Content>
+<asp:Content
+  ID="Content3"
+  ContentPlaceHolderID="ContentPlaceHolderJS"
+  Runat="Server"
+>
+  <script>
+    function tabEach() {
+      let order = 1;
+      $(".js-tab").each(function () {
+        $(this)
+          .find("img")
+          .attr("src", "../images/icon/account-" + order + ".svg");
+        order++;
+      });
+    }
+
+    function tabIcon() {
+      let index = 1 + +tabIndex;
+      if (tabIndex) {
+        tabEach();
+        $(".js-tab")
+          .eq(tabIndex)
+          .find("img")
+          .attr("src", "../images/icon/account-" + index + "w.svg");
+      }
+      $(".js-tab").on("click", function () {
+        tabEach();
+        let clickIndex = $(this).index() + 1;
+        $(this)
+          .find("img")
+          .attr("src", "../images/icon/account-" + clickIndex + "w.svg");
+      });
+    }
+    tabIcon();
+
+    $(".js-status").each(function () {
+      let text = $(this).text().trim();
+      let color = "";
+      if (text == "申請中") {
+        color = "blue";
+      } else if (text == "已開通") {
+        color = "green";
+      } else if (text == "駁回") {
+        color = "red";
+      } else {
+        color = "gray";
+      }
+      $(this).attr("data-status", color);
+    });
+
+    $(".js-type").on("click", function () {
+      let text = $(this).text().trim();
+      $(".js-accountType").text(text);
+    });
+
+    if (isPostBack) {
+      tabIcon();
+    }
+  </script>
+</asp:Content>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterPage.master"
+AutoEventWireup="true" CodeFile="MyNotice.aspx.cs" Inherits="BaseData_MyNotice"
+%>
+
+<asp:Content
+  ID="Content1"
+  ContentPlaceHolderID="ContentPlaceHolderHead"
+  Runat="Server"
+>
+</asp:Content>
+<asp:Content
+  ID="Content2"
+  ContentPlaceHolderID="ContentPlaceHolder1"
+  Runat="Server"
+>
+  <div class="big-container">
+    <h1>
+      <img src="../images/icon/document.svg" alt="" />
+      我的待辦-<span class="js-accountType">待辦報表</span>
+    </h1>
+    <div class="square-tab-wrap js-tab-wrap" data-tab="A">
+      <div class="square-tab js-tab active js-type">
+        <img src="../images/icon/account-1w.svg" alt="" />
+        待辦報表
+      </div>
+      <div class="square-tab js-tab js-type">
+        <img src="../images/icon/account-2.svg" alt="" />
+        簽核中報表
+      </div>
+
+    </div>
+    <!-- 內部帳號 欄位要再確認-->
+    <div class="tab-content js-tab-contentA">
+      <section>
+        <div class="search-wrap border-wrap">
+          <div>
+            <div class="search-content">
+
+                <div class="search-group check-btn-wrap">
+                    <div class="title">
+                        <label class="text">狀 態</label>
+                        <span>：</span>
+                    </div>
+                    <div class="check-btn">
+                        <input type="checkbox" id="status1">
+                        <label for="status1">退文</label>
+                        <input type="checkbox" id="status2">
+                        <label for="status2">陳核中</label>
+                        <input type="checkbox" id="status3">
+                        <label for="status3">待簽辦</label>
+                        <input type="checkbox" id="status4">
+                        <label for="status4">暫存中</label>
+                        <input type="checkbox" id="status5">
+                        <label for="status5">待覆閱</label>
+                        <input type="checkbox" id="status6">
+                        <label for="status6">覆閱中</label>
+                    </div>
+                </div>
+              
+              <div class="search-btn-wrap">
+                <button
+                  id="BTN_UserList_County_Government_Select"
+                  class="search-btn"
+                  onclick="BTNSelect_Click()"
+                >
+                  查詢
+                </button>
+                <button
+                  id="BTN_UserList_County_Government_Clear"
+                  class="search-cancel-btn"
+                  onclick="BTNClear_Click()"
+                >
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="listUp-btn-wrap">
+          <div></div>
+          <div class="listUp-count">
+            查詢件數：<asp:Label
+              runat="server"
+              ID="L_UserList_County_Government_Count"
+              Text="0"
+            />筆
+          </div>
+        </div>
+        <!-- 一次顯示十筆 -->
+        <div class="list-table-wrap">
+          <div>
+            <table
+              class="list-table"
+              cellspacing="0"
+              rules="all"
+              border="1"
+              id="ContentPlaceHolder1_GV_UserList_County_Government"
+              style="border-collapse: collapse"
+            >
+              <tr>
+                <th scope="col">案件編號</th>
+                <th scope="col">申請單編號</th>
+                <th scope="col">地籍</th>
+                <th scope="col">申請單名稱</th>
+                <th scope="col">陳送人</th>
+                <th scope="col">收件狀態</th>
+              </tr>
+
+              <!-- 待簽辦 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="待簽辦"
+                    class="todo-status todo-lightBlue fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 退　文 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="退　文"
+                    class="todo-status todo-red fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 待覆閱 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="待覆閱"
+                    class="todo-status todo-green fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 暫存中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="暫存中"
+                    class="todo-status todo-darkBlue fill"
+                  />
+                </td>
+              </tr>
+
+              <!-- 覆閱中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="覆閱中"
+                    class="todo-status todo-purple"
+                  />
+                </td>
+              </tr>
+
+              <!-- 陳核中 -->
+              <tr>
+                <td>TT9911302068</td>
+                <td>SA2002011302219</td>
+                <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                <td>免擬具查核表</td>
+                <td>王曉明</td>
+                <td>
+                  <input
+                    type="submit"
+                    name=""
+                    value="陳核中"
+                    class="todo-status todo-yellow"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 鄉公所帳號 -->
+    <div class="tab-content js-tab-contentA none">
+        <section>
+          <div class="search-wrap border-wrap">
+            <div>
+              <div class="search-content">
+  
+                  <div class="search-group check-btn-wrap">
+                      <div class="title">
+                          <label class="text">狀 態</label>
+                          <span>：</span>
+                      </div>
+                      <div class="check-btn">
+                          <input type="checkbox" id="status1">
+                          <label for="status1">退文</label>
+                          <input type="checkbox" id="status2">
+                          <label for="status2">陳核中</label>
+                          <input type="checkbox" id="status3">
+                          <label for="status3">待簽辦</label>
+                          <input type="checkbox" id="status4">
+                          <label for="status4">暫存中</label>
+                          <input type="checkbox" id="status5">
+                          <label for="status5">待覆閱</label>
+                          <input type="checkbox" id="status6">
+                          <label for="status6">覆閱中</label>
+                      </div>
+                  </div>
+                
+                <div class="search-btn-wrap">
+                  <button
+                    id="BTN_UserList_County_Government_Select"
+                    class="search-btn"
+                    onclick="BTNSelect_Click()"
+                  >
+                    查詢
+                  </button>
+                  <button
+                    id="BTN_UserList_County_Government_Clear"
+                    class="search-cancel-btn"
+                    onclick="BTNClear_Click()"
+                  >
+                    清除
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="listUp-btn-wrap">
+            <div></div>
+            <div class="listUp-count">
+              查詢件數：<asp:Label
+                runat="server"
+                ID="t"
+                Text="0"
+              />筆
+            </div>
+          </div>
+          <!-- 一次顯示十筆 -->
+          <div class="list-table-wrap">
+            <div>
+              <table
+                class="list-table"
+                cellspacing="0"
+                rules="all"
+                border="1"
+                id="ContentPlaceHolder1_GV_UserList_County_Government"
+                style="border-collapse: collapse"
+              >
+                <tr>
+                  <th scope="col">案件編XX號</th>
+                  <th scope="col">申請單編號</th>
+                  <th scope="col">地籍</th>
+                  <th scope="col">申請單名稱</th>
+                  <th scope="col">陳送人</th>
+                  <th scope="col">收件狀態</th>
+                </tr>
+  
+                <!-- 待簽辦 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="待簽辦"
+                      class="todo-status todo-lightBlue fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 退　文 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="退　文"
+                      class="todo-status todo-red fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 待覆閱 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="待覆閱"
+                      class="todo-status todo-green fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 暫存中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="暫存中"
+                      class="todo-status todo-darkBlue fill"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 覆閱中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="覆閱中"
+                      class="todo-status todo-purple"
+                    />
+                  </td>
+                </tr>
+  
+                <!-- 陳核中 -->
+                <tr>
+                  <td>TT9911302068</td>
+                  <td>SA2002011302219</td>
+                  <td>臺東縣鹿野鄉泥活山段180-2號</td>
+                  <td>免擬具查核表</td>
+                  <td>王曉明</td>
+                  <td>
+                    <input
+                      type="submit"
+                      name=""
+                      value="陳核中"
+                      class="todo-status todo-yellow"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+  </div>
+</asp:Content>
+<asp:Content
+  ID="Content3"
+  ContentPlaceHolderID="ContentPlaceHolderJS"
+  Runat="Server"
+>
+  <script>
+    function tabEach() {
+      let order = 1;
+      $(".js-tab").each(function () {
+        $(this)
+          .find("img")
+          .attr("src", "../images/icon/account-" + order + ".svg");
+        order++;
+      });
+    }
+
+    function tabIcon() {
+      let index = 1 + +tabIndex;
+      if (tabIndex) {
+        tabEach();
+        $(".js-tab")
+          .eq(tabIndex)
+          .find("img")
+          .attr("src", "../images/icon/account-" + index + "w.svg");
+      }
+      $(".js-tab").on("click", function () {
+        tabEach();
+        let clickIndex = $(this).index() + 1;
+        $(this)
+          .find("img")
+          .attr("src", "../images/icon/account-" + clickIndex + "w.svg");
+      });
+    }
+    tabIcon();
+
+    $(".js-status").each(function () {
+      let text = $(this).text().trim();
+      let color = "";
+      if (text == "申請中") {
+        color = "blue";
+      } else if (text == "已開通") {
+        color = "green";
+      } else if (text == "駁回") {
+        color = "red";
+      } else {
+        color = "gray";
+      }
+      $(this).attr("data-status", color);
+    });
+
+    $(".js-type").on("click", function () {
+      let text = $(this).text().trim();
+      $(".js-accountType").text(text);
+    });
+
+    if (isPostBack) {
+      tabIcon();
+    }
+  </script>
+</asp:Content>
+
+
