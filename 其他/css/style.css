@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Microsoft JhengHei';
+    src: local('Microsoft JhengHei'), local('微軟正黑體'),
+         url('https://example.com/path-to-your-font-file.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Microsoft JhengHei', sans-serif;
+  }
