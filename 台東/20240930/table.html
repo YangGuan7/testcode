@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tag {
+        padding: 4px 15px;
+        font-weight: bold;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 0 !important;
+      }
+      .tag.gray {
+        background-color: #c7c7c7;
+        color: #333333;
+      }
+      .tag.orange {
+        background-color: #fcccb0;
+        color: #333333;
+      }
+      .tag.red {
+        background-color: #c60000;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      class="inner-table"
+      cellspacing="0"
+      rules="all"
+      border="1"
+      id="ContentPlaceHolder1_SignArea_GV_SIGN"
+      style="border-collapse: collapse"
+    >
+      <tr>
+        <th scope="col">單位</th>
+        <th scope="col">職稱</th>
+        <th scope="col">姓名</th>
+        <th scope="col">陳核意見</th>
+        <th scope="col">狀態</th>
+        <th scope="col">審查結果</th>
+        <th scope="col">審查意見</th>
+        <th scope="col">簽核日期</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>楊惠瓘</td>
+        <td>&nbsp;</td>
+        <td class="tag gray">送出</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>2024/9/24 下午 02:01:49</td>
+      </tr>
+      <tr>
+        <td>大武鄉</td>
+        <td>辦事員</td>
+        <td>陳多維2(鄉)</td>
+        <td>&nbsp;</td>
+        <td class="tag orange">陳核</td>
+        <td>續請縣府同意備查</td>
+        <td>&nbsp;</td>
+        <td>2024/9/24 下午 06:16:31</td>
+      </tr>
+      <tr>
+        <td>大武鄉</td>
+        <td>課長</td>
+        <td>陳多維3(鄉)</td>
+        <td>&nbsp;</td>
+        <td class="tag red">退文</td>
+        <td>續請縣府同意備查</td>
+        <td>&nbsp;</td>
+        <td>2024/9/26 下午 07:50:46</td>
+      </tr>
+      <tr>
+        <td>大武鄉</td>
+        <td>辦事員</td>
+        <td>陳多維2(鄉)</td>
+        <td>&nbsp;</td>
+        <td class="tag orange">陳核</td>
+        <td>續請縣府同意備查</td>
+        <td>&nbsp;</td>
+        <td>2024/9/26 下午 08:07:40</td>
+      </tr>
+    </table>
+    <script>
+      document.querySelectorAll("td.tag").forEach((td) => {
+        const span = document.createElement("span");
+        span.className = td.className; // 將 td 的 class 移到 span
+        span.textContent = td.textContent; // 將 td 的文字內容移到 span
+        td.textContent = ""; // 清空 td 的文字內容
+        td.appendChild(span); // 將 span 添加到 td 中
+        td.removeAttribute("class"); // 移除 td 的 class
+      });
+    </script>
+  </body>
+</html>
