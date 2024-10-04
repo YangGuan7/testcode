@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="onsite-card left">
+      <!-- 表頭 -->
+      <div class="onsite-th left">
+        現場照片(一)　<span class="must">必填</span>
+      </div>
+      <!-- 身體 -->
+      <div class="update-photo">
+        <div class="file-wrap js-file-wrap">
+          <div>
+            <div
+              id="ContentPlaceHolder1_P_SWC028"
+              class="choose-file-wrap js-choose-file"
+            >
+              <label>
+                <span class="choose-file-btn js-choose-btn"
+                  >上傳檔案
+                  <input
+                    type="file"
+                    id="FILESWC028"
+                    class="js-file"
+                    onchange="fileupload(this, ['.JPG', '.PNG'], 10, '現場照片一', 'ContentPlaceHolder1_IMGSWC028', 'ContentPlaceHolder1_HFSWC028')"
+                  />
+                </span>
+                <span class="js-file-place">
+                  <span class="placeholder">
+                    ※ 上傳格式限定為JPG、PNG，檔案大小請於10MB以內
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <input
+            type="submit"
+            name="ctl00$ContentPlaceHolder1$DELSWC028"
+            value="清除"
+            onclick="return fileclear(this);"
+            id="ContentPlaceHolder1_DELSWC028"
+            class="cancel-btn js-file-trash"
+          />
+        </div>
+        <img id="ContentPlaceHolder1_IMGSWC028" OnClick="open_image(this);" />
+        <input
+          type="hidden"
+          name="ctl00$ContentPlaceHolder1$HFSWC028"
+          id="ContentPlaceHolder1_HFSWC028"
+        />
+        <textarea
+          name="ctl00$ContentPlaceHolder1$TBSWC029"
+          rows="2"
+          cols="20"
+          id="ContentPlaceHolder1_TBSWC029"
+          class="w-100 textarea-radius"
+          placeholder="請輸入照片說明文字"
+        ></textarea>
+      </div>
+    </div>
+  </body>
+</html>
