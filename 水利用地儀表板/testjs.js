@@ -1,39 +1,87 @@
-// 讀取 json 格式
-fetch('./0927.json')
+// 讀取 JSON 格式的資料，從指定網址
+fetch('./0927.json')// 讀取 JSON 格式的資料，從指定網址
     .then(response => response.json())
     .then(jsonData => {
         
         // 處理 "Num": "0" 的資料 (上面第一塊)
-        let chartContainer = document.getElementById('chart-container'); // 放在 chart-container 裡面
-        const numZeroData = jsonData.Sub.find(sub => sub.Num === "0"); // 讀取 Num 值為 0 的資料
+        let chartTotal = document.querySelector('.top-Total');
+        const numZeroData = jsonData.Sub.find(sub => sub.Num === "0");
+
+        if (numZeroData) {
+            numZeroData.boby.forEach(department => {
+                department.TypeCount.forEach((item, index) => {
+                    if (item.Title === "112年總巡查數量" || item.Title === "累計月巡查數量") {
+                        let div = document.createElement('div');
+                        div.className = 'chart__amount';
+
+                        // 設定 mark 的 class 根據 index
+                        let markClass = index === 0 ? 'gray' : 'blue';
+
+                        // 裡面的架構
+                        div.innerHTML = `
+                            <h2>${item.Title}</h2>
+                            <p><mark class="${markClass}">${item.Count}</mark>件</p>
+                        `;
+                        // 將 div 加到 chartTotal 裡面
+                        chartTotal.appendChild(div);
+                    }
+                });
+            });
+        }
+
+
+        // 新增處理 "已巡查"、"待巡查"、"未分派" 的資料
+                let topGroup = document.querySelector('.top-group'); // 放在 top-group 裡面
 
         if (numZeroData) {
             numZeroData.boby.forEach(department => {
                 department.TypeCount.forEach(item => {
-                    let div = document.createElement('div');
-                    div.className = 'chart__amount';
+                    if (item.Title === "已巡查" || item.Title === "待巡查" || item.Title === "未分派") {
+                        let div = document.createElement('div');
+                        div.className = 'chart__amount';
 
-                    // 裡面的架構
-                    div.innerHTML = `
-                        <h2>${item.Title}</h2>
-                        <p class="${item.color}">${item.Count}件</p>
-                    `;
-                    // 將 div 加到 chartContainer 裡面
-                    chartContainer.appendChild(div);
+                        // 設定 h2 的 style 根據 item.Title
+                        let color;
+                        if (item.Title === "已巡查") {
+                            color = '#5d79ab';
+                        } else if (item.Title === "待巡查") {
+                            color = '#F00';
+                        } else if (item.Title === "未分派") {
+                            color = '#aabc7e';
+                        }
+
+                        // 裡面的架構
+                        div.innerHTML = `
+                            <h2 style="font-weight: bold; color: ${color};">${item.Title}</h2>
+                            <p class="pr_s"><span class="bigspan">${item.Count}</span>件</p>
+                        `;
+                        // 將 div 加到 topGroup 裡面
+                        topGroup.appendChild(div);
+                    }
                 });
             });
         }
 
         // 處理 "Num": "1" 的資料 (下面第二塊)
         const itemsContainer = document.querySelector('.items'); // 放在 items 裡面
-        const numOneData = jsonData.Sub.find(sub => sub.Num === "1"); // 讀取 Num 值為 1 的資料
+        const numOneData = jsonData.Sub.find(sub => sub.Num === "1");
 
         if (numOneData) {
             numOneData.boby.forEach(department => {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = 'item border__color-1';
 
-                // 找到對應的 TypeCount 並獨到 Count
+                // 設定 className 根據 department.Type
+                let borderColorClass;
+                if (department.Type === "河川管理科") {
+                    borderColorClass = 'border__color-1';
+                } else if (department.Type === "河川工程科") {
+                    borderColorClass = 'border__color-2';
+                } else {
+                    borderColorClass = 'border__color-3';
+                }
+                itemDiv.className = `item ${borderColorClass}`;
+
+                // 找到對應的 TypeCount 並讀取 Count
                 const total = department.TypeCount.find(tc => tc.Title === "應巡查總數").Count;
                 const inspected = department.TypeCount.find(tc => tc.Title === "已巡查").Count;
                 const pending = department.TypeCount.find(tc => tc.Title === "待巡查").Count;
