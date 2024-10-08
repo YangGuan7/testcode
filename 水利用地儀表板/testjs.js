@@ -9,23 +9,25 @@ fetch('./0927.json')// 讀取 JSON 格式的資料，從指定網址
 
         if (numZeroData) {
             numZeroData.boby.forEach(department => {
-                department.TypeCount.forEach((item, index) => {
-                    if (item.Title === "112年總巡查數量" || item.Title === "累計月巡查數量") {
-                        let div = document.createElement('div');
-                        div.className = 'chart__amount';
-
-                        // 設定 mark 的 class 根據 index
-                        let markClass = index === 0 ? 'gray' : 'blue';
-
-                        // 裡面的架構
-                        div.innerHTML = `
-                            <h2>${item.Title}</h2>
-                            <p><mark class="${markClass}">${item.Count}</mark>件</p>
-                        `;
-                        // 將 div 加到 chartTotal 裡面
-                        chartTotal.appendChild(div);
-                    }
-                });
+                // 讀取第一個項目 (0112年總巡查數量)
+                let firstItem = department.TypeCount[0];
+                let firstDiv = document.createElement('div');
+                firstDiv.className = 'chart__amount';
+                firstDiv.innerHTML = `
+                    <h2>${firstItem.Title}</h2>
+                    <p><mark class="gray">${firstItem.Count}</mark>件</p>
+                `;
+                chartTotal.appendChild(firstDiv);
+        
+                // 讀取第二個項目 (累計至10月巡查數量)
+                let secondItem = department.TypeCount[1];
+                let secondDiv = document.createElement('div');
+                secondDiv.className = 'chart__amount';
+                secondDiv.innerHTML = `
+                    <h2>${secondItem.Title}</h2>
+                    <p><mark class="blue">${secondItem.Count}</mark>件</p>
+                `;
+                chartTotal.appendChild(secondDiv);
             });
         }
 

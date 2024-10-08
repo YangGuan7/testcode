@@ -1,4 +1,3 @@
-
 {
   "Sub": [
     {
@@ -8,24 +7,24 @@
           "Type": "總計",
           "TypeCount": [
             {
-              "Title": "112年總巡查數量",
+              "Title": "0112年總巡查數量",
               "Count": "4775"
             },
             {
-              "Title": "累計月巡查數量",
-              "Count": "55"
+              "Title": "累計至10月巡查數量",
+              "Count": "0"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "4166"
+              "Count": "4218"
             },
             {
               "Title": "未分派",
-              "Count": "526"
+              "Count": "557"
             }
           ]
         }
@@ -39,19 +38,19 @@
           "TypeCount": [
             {
               "Title": "應巡查總數",
-              "Count": "4775"
+              "Count": "4032"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "55"
+              "Count": "3871"
             },
             {
               "Title": "未分派",
-              "Count": "4166"
+              "Count": "161"
             }
           ]
         },
@@ -60,19 +59,19 @@
           "TypeCount": [
             {
               "Title": "應巡查總數",
-              "Count": "4775"
+              "Count": "3"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "未分派",
-              "Count": "4166"
+              "Count": "3"
             }
           ]
         },
@@ -81,19 +80,19 @@
           "TypeCount": [
             {
               "Title": "應巡查總數",
-              "Count": "4775"
+              "Count": "527"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "55"
+              "Count": "303"
             },
             {
               "Title": "未分派",
-              "Count": "4166"
+              "Count": "224"
             }
           ]
         },
@@ -102,19 +101,19 @@
           "TypeCount": [
             {
               "Title": "應巡查總數",
-              "Count": "4775"
+              "Count": "186"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "55"
+              "Count": "19"
             },
             {
               "Title": "未分派",
-              "Count": "4166"
+              "Count": "167"
             }
           ]
         },
@@ -123,19 +122,19 @@
           "TypeCount": [
             {
               "Title": "應巡查總數",
-              "Count": "4775"
+              "Count": "2"
             },
             {
               "Title": "已巡查",
-              "Count": "55"
+              "Count": "0"
             },
             {
               "Title": "待巡查",
-              "Count": "55"
+              "Count": "2"
             },
             {
               "Title": "未分派",
-              "Count": "4166"
+              "Count": "0"
             }
           ]
         }
