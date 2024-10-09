@@ -1,0 +1,77 @@
+section{
+    background-color: lightslategray;
+    color: white;
+    padding: 20px;
+}
+.none{
+    display: none;
+}
+.actie{
+    display: block;
+}
+
+/*  */
+
+.botttom-btn-wrap .default-btn, .botttom-btn-wrap .cancel-btn {
+    font-size: 20px;
+    letter-spacing: 8px;
+    text-indent: 8px;
+    font-weight: 600;
+    box-shadow: 0 5px 12px rgba(105, 105, 105, 0.0784313725);
+    padding: 9px 25px;
+}
+
+.orange {
+    background-color: #D46C20;
+}
+.pv-btn.white {
+    background-color: #FFFFFF;
+    color: #5C5342;
+}
+
+@media (max-width: 768px) {
+    .step-flow-wrap {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .step-flow-wrap .step-flow {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        text-align: center;
+    }
+    .step-flow-wrap .step-flow::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        border-top: 2px dashed #C7C7C7;
+        position: absolute;
+        bottom: -15px;
+        right: 50%;
+        z-index: -1;
+    }
+    .step-flow-wrap .step-flow::after {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-color: #C7C7C7;
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}

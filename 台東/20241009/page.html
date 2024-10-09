@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./page.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- RWD步驟 -->
+    <div class="step-flow-wrap">
+      <div class="step-flow active js-step">
+        <img src="../img/icon/step-FolderFill.svg" alt="" />
+        <span>基本資料</span>
+      </div>
+      <div class="step-flow js-step">
+        <img src="../img/step-Check-disabled.svg" alt="" />
+        <span>檢核表</span>
+      </div>
+      <div class="step-flow js-step">
+        <img src="../img/step-Image.svg" alt="" />
+        <span>公文文號</span>
+      </div>
+      <div class="step-flow js-step">
+        <img src="../img/step-Pencil.svg" alt="" />
+        <span>審查結果</span>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <section
+      class="js-stepWrap page-tab-content active"
+      data-stepWrap="1"
+      id="section1"
+    >
+      section1
+    </section>
+    <br />
+    <section
+      class="js-stepWrap page-tab-content none"
+      data-stepWrap="2"
+      id="section2"
+    >
+      section2
+      <br />
+    </section>
+    <br />
+    <section
+      class="js-stepWrap page-tab-content none"
+      data-stepWrap="3"
+      id="section3"
+    >
+      section3
+    </section>
+    <br />
+    <section
+      class="js-stepWrap page-tab-content none"
+      data-stepWrap="4"
+      id="section4"
+    >
+      section4
+    </section>
+
+    <div class="botttom-btn-wrap js-submit-wrap">
+        <div>
+            <button id="Button8" class="js-step-Back pv-btn white">上一頁</button>
+            <button id="Button1" class="cancel-btn brown" onclick="return Button_Check('暫存')">暫時儲存</button>
+            <button id="Button9" class="js-step-continue pv-btn white">下一頁</button>
+        </div>
+        <div>
+            <button id="Button3" class="default-btn orange js-submitAccount">陳核</button>
+            <button id="Button4" class="default-btn orange js-submitAccount">退文</button>
+            <button id="Button5" class="default-btn orange js-submitAccount">決行</button>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
