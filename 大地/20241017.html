@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      th {
+        background-color: #028760;
+      }
+      /* tr:nth-child(2n) {
+        background-color: #d6e9ca;
+      }
+      tr:nth-child(2n) > td:last-child {
+        background-color: yellow;
+      }
+      tr:nth-child(2n + 1) {
+        background-color: lightyellow;
+      } */
+    </style>
+  </head>
+  <body>
+    <table
+      class="rvfrom AutoNewLine"
+      cellspacing="0"
+      rules="all"
+      border="1"
+      id="GVReViewList"
+      style="border-collapse: collapse"
+    >
+      <tbody>
+        <tr>
+          <th scope="col">序號</th>
+          <th scope="col">身分</th>
+          <th scope="col">人員姓名</th>
+          <th scope="col">審查意見摘要</th>
+          <th scope="col">存檔日期</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>審查委員</td>
+          <td>XX</td>
+          <td>本市水土保持計畫請審查委員及承辦技師加強檢視事項</td>
+          <td>2024-10-17 14:56</td>
+          <td>
+            <input type="submit" name="GVReViewList$ctl02$ctl00" value="編輯" />
+            <input
+              type="submit"
+              name="GVReViewList$ctl02$ctl01"
+              value="刪除"
+              onclick="return confirm('請確認刪除這筆資料?');"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>審查委員</td>
+          <td>XX</td>
+          <td>本市水土保持計畫請審查委員及承辦技師加強檢視事項</td>
+          <td>2024-10-17 14:56</td>
+          <td>
+            <input type="submit" name="GVReViewList$ctl02$ctl00" value="編輯" />
+            <input
+              type="submit"
+              name="GVReViewList$ctl02$ctl01"
+              value="刪除"
+              onclick="return confirm('請確認刪除這筆資料?');"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const table = document.getElementById("GVReViewList");
+
+        // 移除表頭中的第四個 <th>
+        const headerRow = table.querySelector("tr:first-child");
+        const headerCells = headerRow.querySelectorAll("th");
+        if (headerCells.length >= 4) {
+          headerCells[3].remove();
+        }
+
+        // 處理每個 <tr>，移除第四個 <td> 並將其內容移動到新的一行
+        const rows = table.querySelectorAll("tr:not(:first-child)");
+        rows.forEach((row, index) => {
+          const cells = row.querySelectorAll("td");
+          if (cells.length >= 4) {
+            const fourthCell = cells[3];
+            const newRow = document.createElement("tr");
+            const newCell = document.createElement("td");
+            newCell.colSpan = cells.length - 2; // 動態設置colSpan屬性，減去一個單元格
+
+            // 將第四個td的內容移動到新單元格，並在句號處換行
+            const content = fourthCell.textContent.split("。").join("。<br>");
+            newCell.innerHTML = content;
+            newCell.style.textAlign = "start"; // 設置 text-align: start
+            newRow.appendChild(newCell);
+            row.parentNode.insertBefore(newRow, row.nextSibling);
+            fourthCell.remove(); // 移除原本的第四個td
+
+            // 設置最後一個 <td> 的 rowspan 屬性
+            const lastCell = cells[cells.length - 1];
+            lastCell.rowSpan = 2;
+
+            // 設置背景顏色
+            const color = index % 2 === 0 ? "#d6e9ca" : "#ffffff";
+            row.style.backgroundColor = color;
+            newRow.style.backgroundColor = color;
+          }
+        });
+
+        // 設置背景顏色
+        const allRows = table.querySelectorAll("tr:not(:first-child)");
+        allRows.forEach((row, index) => {
+          const color = Math.floor(index / 2) % 2 === 0 ? "#d6e9ca" : "#ffffff";
+          row.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>
