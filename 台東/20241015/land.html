@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .none {
+        display: none;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var content = document.getElementById("ContentPlaceHolder1_ctl00");
+        var header = document.querySelector("h1.inner-h1.border-h1");
+
+        // 檢查 content 裡面是否有 table 元素
+        if (content.querySelector("table")) {
+          header.classList.remove("none");
+        } else {
+          header.classList.add("none");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <tr>
+      <th>
+        <div class="th-wrap">
+          地籍
+          <div class="must">必填</div>
+        </div>
+      </th>
+      <td>
+        <div id="ContentPlaceHolder1_P_GV001">
+          <div class="flex-between sm-column">
+            <div class="land-wrap">
+              <select
+                name="ctl00$ContentPlaceHolder1$DDLSWCTEMP001"
+                onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$DDLSWCTEMP001\&#39;,\&#39;\&#39;)&#39;, 0)"
+                id="ContentPlaceHolder1_DDLSWCTEMP001"
+              >
+                <option selected="selected" value=""></option>
+                <option value="大武鄉">大武鄉</option>
+                <option value="太麻里鄉">太麻里鄉</option>
+                <option value="台東市">台東市</option>
+                <option value="成功鎮">成功鎮</option>
+                <option value="池上鄉">池上鄉</option>
+                <option value="卑南鄉">卑南鄉</option>
+                <option value="延平鄉">延平鄉</option>
+                <option value="東河鄉">東河鄉</option>
+                <option value="金峰鄉">金峰鄉</option>
+                <option value="長濱鄉">長濱鄉</option>
+                <option value="海端鄉">海端鄉</option>
+                <option value="鹿野鄉">鹿野鄉</option>
+                <option value="達仁鄉">達仁鄉</option>
+                <option value="綠島鄉">綠島鄉</option>
+                <option value="關山鎮">關山鎮</option>
+                <option value="蘭嶼鄉">蘭嶼鄉</option>
+              </select>
+
+              <div id="ContentPlaceHolder1_ctl02">
+                <select
+                  name="ctl00$ContentPlaceHolder1$DDLSWCTEMP002"
+                  onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$DDLSWCTEMP002\&#39;,\&#39;\&#39;)&#39;, 0)"
+                  id="ContentPlaceHolder1_DDLSWCTEMP002"
+                >
+                  <option selected="selected" value=""></option>
+                </select>
+              </div>
+              <div id="ContentPlaceHolder1_ctl04">
+                <select
+                  name="ctl00$ContentPlaceHolder1$DDLSWCTEMP003"
+                  id="ContentPlaceHolder1_DDLSWCTEMP003"
+                >
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="land-num">
+                <input
+                  name="ctl00$ContentPlaceHolder1$TBSWCTEMP004"
+                  type="text"
+                  id="ContentPlaceHolder1_TBSWCTEMP004"
+                />
+                <span>地號</span>
+              </div>
+            </div>
+            <input
+              type="submit"
+              name="ctl00$ContentPlaceHolder1$BTN_LAND"
+              value="+加入地籍清單"
+              id="ContentPlaceHolder1_BTN_LAND"
+              class="upload-btn"
+            />
+          </div>
+        </div>
+        <h1 class="inner-h1 border-h1">地籍清單</h1>
+        <div id="ContentPlaceHolder1_ctl00">
+          <div>
+            <table
+              class="inner-table"
+              cellspacing="0"
+              rules="all"
+              border="1"
+              id="ContentPlaceHolder1_GV001"
+              style="border-collapse: collapse"
+            >
+              <tr>
+                <th scope="col">序號</th>
+                <th scope="col">鄉鎮</th>
+                <th scope="col">段</th>
+                <th scope="col">小段</th>
+                <th scope="col">地號</th>
+                <th scope="col" style="width: 10%">&nbsp;</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>長濱鄉</td>
+                <td>田組</td>
+                <td>&nbsp;</td>
+                <td>1</td>
+                <td align="center">
+                  <div>
+                    <input
+                      type="submit"
+                      name="ctl00$ContentPlaceHolder1$GV001$ctl02$GV001_Delete"
+                      value=""
+                      onclick="return deletegv(this);"
+                      id="ContentPlaceHolder1_GV001_GV001_Delete_0"
+                      class="trash-btn"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </body>
+</html>
