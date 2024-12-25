@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="form-table labelstyle">
+      <tbody>
+        <tr>
+          <th>
+            <div class="th-wrap">
+              姓名
+              <div class="must">必填</div>
+            </div>
+          </th>
+          <td>
+            <div class="text-wrap">
+              <input
+                name="ctl00$ContentPlaceHolder1$TB_Name"
+                type="text"
+                value="楊惠瓘"
+                id="ContentPlaceHolder1_TB_Name"
+                class="js-checkName"
+                placeholder="[範例]陳小明"
+                data-required="true"
+              />
+              <span class="error-msg js-error-msg"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="th-wrap">
+              身分證字號
+              <div class="must" style="">必填</div>
+            </div>
+          </th>
+          <td>
+            <div class="text-wrap">
+              <input
+                name="ctl00$ContentPlaceHolder1$TB_IDNo"
+                type="text"
+                value="E225566800"
+                id="ContentPlaceHolder1_TB_IDNo"
+                disabled=""
+                class="aspNetDisabled js-idNum inputHide"
+                placeholder="[範例]A123456789"
+                data-pattern="id"
+                data-required="true"
+              /><span class="added-content">E225566800</span>
+              <span class="error-msg js-error-msg"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="th-wrap">
+              行動電話
+              <div class="must">必填</div>
+            </div>
+          </th>
+          <td>
+            <div class="text-wrap">
+              <input
+                name="ctl00$ContentPlaceHolder1$TB_CELNo"
+                type="text"
+                value="0979550585"
+                id="ContentPlaceHolder1_TB_CELNo"
+                class="js-checkPhoneNumber"
+                placeholder="[範例]0912345678"
+                data-pattern="phone"
+                data-required="true"
+              />
+              <span class="error-msg js-error-msg"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="th-wrap js-verify-wrap">
+              電子信箱
+              <!-- 驗證成功加 active 換文字 -->
+              <div
+                id="ContentPlaceHolder1_DIV_Email_Verify"
+                class="verify js-verify active"
+              >
+                已驗證
+              </div>
+              <!-- 信箱未驗證時前端 => value清掉 -->
+              <input
+                type="hidden"
+                name="ctl00$ContentPlaceHolder1$HF_Email_Verify"
+                id="ContentPlaceHolder1_HF_Email_Verify"
+                value="1"
+              />
+            </div>
+          </th>
+          <td>
+            <div class="flex-left email-wrap">
+              <div class="flex1 text-wrap">
+                <input
+                  type="hidden"
+                  name="ctl00$ContentPlaceHolder1$HF_Type"
+                  id="ContentPlaceHolder1_HF_Type"
+                  value="01"
+                />
+
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Email"
+                  type="text"
+                  value="qaztw030@gmail.com"
+                  id="ContentPlaceHolder1_TB_Email"
+                  class="js-emailInput"
+                  placeholder="[範例]example@gmail.com"
+                  data-pattern="email"
+                />
+                <span class="error-msg js-error-msg"></span>
+              </div>
+              <input
+                type="submit"
+                name="ctl00$ContentPlaceHolder1$BTN_SendMail"
+                value="發送驗證信"
+                id="ContentPlaceHolder1_BTN_SendMail"
+                class="send-btn js-sendEmail none"
+              />
+            </div>
+            <div class="remind none">
+              請填寫您的電子信箱信箱並完成驗證。完成驗證後，即將開通案件"相關"權限。
+            </div>
+            <div class="valiNum-wrap js-hasEmail none">
+              <b>輸入驗證碼</b>
+              <div class="flex-center">
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token1"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token1"
+                  class="js-autotab"
+                  data-pattern="num"
+                />
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token2"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token2"
+                  class="js-autotab"
+                  data-pattern="num"
+                />
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token3"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token3"
+                  class="js-autotab"
+                  data-pattern="num"
+                />
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token4"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token4"
+                  class="js-autotab"
+                  data-pattern="num"
+                />
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token5"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token5"
+                  class="js-autotab"
+                  data-pattern="num"
+                />
+                <input
+                  name="ctl00$ContentPlaceHolder1$TB_Token6"
+                  type="text"
+                  maxlength="1"
+                  id="ContentPlaceHolder1_TB_Token6"
+                  class="js-autotab js-lastTab"
+                  data-pattern="num"
+                />
+              </div>
+              <input
+                type="submit"
+                name="ctl00$ContentPlaceHolder1$BTN_CheckMail"
+                value="送出驗證"
+                id="ContentPlaceHolder1_BTN_CheckMail"
+                class="send-btn js-vali-submit unActive"
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

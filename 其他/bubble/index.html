@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>聊天對話室</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .chat-container {
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .date {
+        text-align: center;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+      .message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #e1ffc7;
+        max-width: 70%;
+      }
+      .message.right {
+        background-color: #c7e1ff;
+        margin-left: auto;
+        text-align: right;
+      }
+      .message .sender {
+        font-weight: bold;
+      }
+      .message .time {
+        color: #888;
+        font-size: 0.9em;
+      }
+      .message .content {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container" id="chat-container">
+      <!-- 聊天內容將動態插入這裡 -->
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

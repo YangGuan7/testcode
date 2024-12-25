@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./style.js"></script>
+  </head>
+  <body>
+    <table class="form-table">
+      <tbody>
+        <tr>
+          <th>受理</th>
+          <td class="file-text-area">
+            <div class="file-text-add-area">
+              <div class="file-wrap js-file-wrap">
+                <div>
+                  <div class="choose-file-wrap js-choose-file">
+                    <label>
+                      <span class="choose-file-btn js-choose-btn"
+                        >上傳檔案
+                        <input
+                          type="file"
+                          id="FILE001"
+                          class="js-file"
+                          onchange="fileupload(this, ['.JPG', '.PNG', '.PDF', '.DOC', '.DOCX', 'XLS', 'XLSX'], 10, '受理相關附件', 'ContentPlaceHolder1_HL001', 'ContentPlaceHolder1_HF001', '受理')"
+                        />
+                      </span>
+                      <span class="js-file-place">
+                        <span class="placeholder">
+                          ※
+                          上傳格式限定為JPG、PNG、PDF、WORD、EXCEL，檔案大小請於10MB以內
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="a-wrap">
+                    <a id="ContentPlaceHolder1_HL001" target="_blank"></a>
+                    <input
+                      type="hidden"
+                      name="ctl00$ContentPlaceHolder1$HF001"
+                      id="ContentPlaceHolder1_HF001"
+                    />
+                    <img
+                      src="../images/icon/file-a.svg"
+                      style="display: none"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <input
+                  type="submit"
+                  name="ctl00$ContentPlaceHolder1$DEL001"
+                  value="清除"
+                  onclick="return fileclear(this);"
+                  id="ContentPlaceHolder1_DEL001"
+                  class="cancel-btn js-file-trash"
+                />
+              </div>
+              <span class="textarea">
+                <textarea
+                  name="ctl00$ContentPlaceHolder1$TB001"
+                  rows="2"
+                  cols="20"
+                  id="ContentPlaceHolder1_TB001"
+                  class="w-100 textarea-radius mt-10"
+                  placeholder="請輸入文字備註"
+                ></textarea>
+              </span>
+              <input
+                type="submit"
+                name="ctl00$ContentPlaceHolder1$BTN_FILE001"
+                value="+加入項目清單"
+                id="ContentPlaceHolder1_BTN_FILE001"
+                class="upload-btn addNewItem centered-button"
+              />
+            </div>
+
+            <h1 class="inner-h1 border-h1">受理檔案清單</h1>
+            <div id="ContentPlaceHolder1_ctl02">
+              <div></div>
+            </div>
+          </td>
+        </tr>
+        <!-- 施工/完工 -->
+
+        <tr>
+          <th>施工/完工</th>
+          <td class="file-text-area">
+            <div class="file-text-add-area">
+              <div class="file-wrap js-file-wrap">
+                <div>
+                  <div class="choose-file-wrap js-choose-file">
+                    <label>
+                      <span class="choose-file-btn js-choose-btn"
+                        >上傳檔案
+                        <input
+                          type="file"
+                          id="FILE002"
+                          class="js-file"
+                          onchange="fileupload(this, ['.JPG', '.PNG', '.PDF', '.DOC', '.DOCX', 'XLS', 'XLSX'], 10, '施工完工相關附件', 'ContentPlaceHolder1_HL002', 'ContentPlaceHolder1_HF002', '施工完工')"
+                        />
+                      </span>
+                      <span class="js-file-place">
+                        <span class="placeholder">
+                          ※
+                          上傳格式限定為JPG、PNG、PDF、WORD、EXCEL，檔案大小請於10MB以內
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="a-wrap">
+                    <a id="ContentPlaceHolder1_HL002" target="_blank"></a>
+                    <input
+                      type="hidden"
+                      name="ctl00$ContentPlaceHolder1$HF002"
+                      id="ContentPlaceHolder1_HF002"
+                    />
+                    <img
+                      src="../images/icon/file-a.svg"
+                      style="display: none"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <input
+                  type="submit"
+                  name="ctl00$ContentPlaceHolder1$DEL002"
+                  value="清除"
+                  onclick="return fileclear(this);"
+                  id="ContentPlaceHolder1_DEL002"
+                  class="cancel-btn js-file-trash"
+                />
+              </div>
+              <span class="textarea">
+                <textarea
+                  name="ctl00$ContentPlaceHolder1$TB002"
+                  rows="2"
+                  cols="20"
+                  id="ContentPlaceHolder1_TB002"
+                  class="w-100 textarea-radius mt-10"
+                  placeholder="請輸入文字備註"
+                ></textarea>
+              </span>
+              <input
+                type="submit"
+                name="ctl00$ContentPlaceHolder1$BTN_FILE002"
+                value="+加入項目清單"
+                id="ContentPlaceHolder1_BTN_FILE002"
+                class="upload-btn addNewItem centered-button"
+              />
+            </div>
+
+            <h1 class="inner-h1 border-h1">施工/完工檔案清單</h1>
+            <div id="ContentPlaceHolder1_ctl03">
+              <div></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

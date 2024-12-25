@@ -3,10 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>20241017原本的版本</title>
     <style>
+      table {
+        width: 1180px;
+        margin: 0 auto;
+      }
       th {
-        background-color: #028760;
+        background-color: #228dbf;
+      }
+      td {
+        vertical-align: middle;
+        text-align: center;
+      }
+      .scrollable-td {
+        height: 200px;
+        overflow-y: scroll;
+      }
+      .rv-overflow {
+        max-height: 200px;
+        overflow-y: auto;
+        line-height: 1.5;
+        margin: 5px 0px 5px 5px;
+        padding-right: 5px;
+      }
+      /* 自定義滾動條樣式 */
+      .rv-overflow::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .rv-overflow::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 6px;
+      }
+
+      .rv-overflow::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 6px;
+      }
+
+      .rv-overflow::-webkit-scrollbar-thumb:hover {
+        background: #555;
       }
       /* tr:nth-child(2n) {
         background-color: #d6e9ca;
@@ -35,13 +72,64 @@
           <th scope="col">人員姓名</th>
           <th scope="col">審查意見摘要</th>
           <th scope="col">存檔日期</th>
-          <th scope="col">&nbsp;</th>
+          <th scope="col" style="min-width: 110px">&nbsp;</th>
         </tr>
         <tr>
           <td>1</td>
           <td>審查委員</td>
           <td>XX</td>
-          <td>本市水土保持計畫請審查委員及承辦技師加強檢視事項</td>
+          <td>
+            本市水土保持計畫請審查委員及承辦技師加強檢視事項
+            本處僅就審查常見缺失提示審查委員會及承辦技師加強確認，不實質參與審查，請審查委員秉專業依水土保持計畫審核監督辦法、水土保持技術規範及臺北市水土保持申請參考手冊妥為審查。
+            1. 基本資料是否完備 1.1 雨量站選定是否合理。 1.2
+            提供鑽探資料上傳地調所之佐證。 1.3
+            評估地質適宜性、災害潛勢，並作具體結論。 1.4
+            開發基地無座落地質敏感區或已檢附基地地質調查及地質安全評估。 2.
+            開挖整地是否符合規定 2.1 開挖避免截斷斷層、破碎帶及順向坡。 2.2
+            是否力求挖填平衡首次建案挖方＜計畫面積x15,000m3/ha(或首次農業使用挖方＜計畫面積x7,500m3/ha)
+            3. 水土保持是否符合規定 3.1
+            水保設施設置於基地內，並考量透水、保水及低衝擊開發理念，並將水土保持設施面積標註於水土保持設施配置圖。
+            3.2
+            基地內逕流全數納入滯洪檢討並採重力排水，如確有困難採抽排設計，應符合以下原則：
+            3.2.1 專節說明無法重力排放之原因，並請建築師出席討論確認。 3.2.2
+            抽水機設定連續降雨後強制排空(空庫以待)，並於告示牌簡短說明使用及維護重點。
+            3.2.3
+            抽水機宜併管設計及設置閘閥、逆止閥、防震接頭等設備，並確認市面有符合設計之產品(如檢附設施型錄)。
+            3.2.4
+            申報完工時應檢附水土保持專業技師簽證之查驗成果及專業廠商之後續管理維護計畫（包含至少3年期抽水設備之保固證明或維修保養檢測契約），並納入使用執照列管。
+            3.3 滯洪沉砂池應確認無逆流之虞，並考量清淤便利性，踏步考量防滑。
+            告示牌設計圖請考量美觀及實用，如尚未定案得先以示意圖方式呈現，完工申報時報備定案書圖。
+            3.4 落差或沖蝕之虞者設置消能設施。 3.5
+            聯外排水之檢核結果可安全排放。
+            如非排至公共雨水下水道系統，應有詳細相片及說明。 3.6
+            檢附案址周邊雨水下水道系統圖，並確認是否可供應基地內逕流安全排放，另相關圖資可至本市道路管線暨資訊中心-管線圖查詢。
+            3.7
+            上游集水區超過1公頃或有排水不良及致災疑慮者，應檢討設置截流處理，並考量水量調節、沉砂及消能設施。
+            3.8
+            如上游逕流水遭截流導排(不論形式、既有或新設)，應檢討截流排放安全性。
+            3.9
+            如基地狹小、施工或工序受限等，在無安全之虞前提下，請鼓勵承辦技師以永久設施兼臨時設施方式規劃，且設施量體得依工程進度調整。
+            3.10 人工邊坡已檢討安全性，擋土牆未作為建築外牆使用。 3.11
+            不規則形狀之水土保持設施，應於適當圖面上標繪三處(含)以上驗收位置及尺寸，並明確於現場設施標記，以利完工檢查量測(例如周長、斷面長度、深度等)。
+            4. 防災措施是否符合規定 4.1 規劃土方暫置區（土方處理計畫）。 4.2
+            評估以圖說呈現各階段配置。 4.3
+            開挖邊坡如有安全疑慮，應檢討設置臨時擋土設施並繪於圖7-1，另如臨時擋土設施、土方暫置、施工便道須設於界外，以維持原地形及完工後復原為原則，並檢附土地使用同意書。
+            5. 預定施工方式是否合理 5.1 評估於2樓樓版勘驗前完工。 5.2
+            施工期限每期未超過12個月。 6. 其他注意事項 6.1
+            調整水保計畫變更設計格式：基於信賴保護，變更設計審查以變更部分為限，檔案亦無須後附原核定計畫
+            (電子檔可至書件平台查詢)，惟仍請檢附原核定計畫之第五、六、七章相關重要圖說；變更部分以雲形線標示，文字內容與原核定相同者標註「同原核定」即可(除非有重申之必要，方需呈現原計畫內文並標注同原核定）。
+            6.2
+            審查意見如高於水土保持技術規範標準要求，應具體論述其必要性，且有學理及數據分析支持，並注意環境友善。
+            6.3 本案核定前請提供水土保持設施配置圖CAD
+            檔並以TWD97座標系統製作，各設施項目分各圖層命名繪製：計畫範圍-紅色、排水設施(含集水井)-藍色、滯洪沉砂池-洋紅、擋土設施-棕色、植生設施-綠色；其餘圖層確實標明屬性資料，與計畫無關之圖層刪除。
+            6.4
+            基地範圍內之人工邊坡，申報完工前至「臺北市山坡地人工邊坡安全資訊系統」完成登錄。
+            6.5
+            請承辦技師於臺北市水土保持申請書件管理平台填寫水土保持設施項目清冊，並請審查委員於核定前確認資料正確。
+            6.6 水土保持計畫PDF檔請以軟體輸出製作，圖說CAD轉PDF檔請以DWG To
+            PDF.pc3格式輸出，勿列印紙本後再掃描上傳。 6.7
+            (簡易水土保持申報書適用)為維坡地安全，未來開工後請水土保持義務人委由符合「水土保持法」第6條規定之相關專業技師進行監造。
+          </td>
           <td>2024-10-17 14:56</td>
           <td>
             <input type="submit" name="GVReViewList$ctl02$ctl00" value="編輯" />
@@ -58,7 +146,9 @@
           <td>1</td>
           <td>審查委員</td>
           <td>XX</td>
-          <td>本市水土保持計畫請審查委員及承辦技師加強檢視事項</td>
+          <td>
+            本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項本市水土保持計畫請審查委員及承辦技師加強檢視事項
+          </td>
           <td>2024-10-17 14:56</td>
           <td>
             <input type="submit" name="GVReViewList$ctl02$ctl00" value="編輯" />
@@ -72,19 +162,16 @@
         </tr>
       </tbody>
     </table>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const table = document.getElementById("GVReViewList");
 
-        // 移除表頭中的第四個 <th>
         const headerRow = table.querySelector("tr:first-child");
         const headerCells = headerRow.querySelectorAll("th");
         if (headerCells.length >= 4) {
           headerCells[3].remove();
         }
 
-        // 處理每個 <tr>，移除第四個 <td> 並將其內容移動到新的一行
         const rows = table.querySelectorAll("tr:not(:first-child)");
         rows.forEach((row, index) => {
           const cells = row.querySelectorAll("td");
@@ -92,32 +179,27 @@
             const fourthCell = cells[3];
             const newRow = document.createElement("tr");
             const newCell = document.createElement("td");
-            newCell.colSpan = cells.length - 2; // 動態設置colSpan屬性，減去一個單元格
+            newCell.colSpan = cells.length - 2;
 
-            // 將第四個td的內容移動到新單元格，並在句號處換行
             const content = fourthCell.textContent.split("。").join("。<br>");
-            newCell.innerHTML = content;
-            newCell.style.textAlign = "start"; // 設置 text-align: start
+            const contentDiv = document.createElement("div");
+            contentDiv.innerHTML = content;
+            contentDiv.classList.add("rv-overflow");
+
+            newCell.appendChild(contentDiv);
+
+            newCell.style.textAlign = "start";
             newRow.appendChild(newCell);
             row.parentNode.insertBefore(newRow, row.nextSibling);
-            fourthCell.remove(); // 移除原本的第四個td
+            fourthCell.remove();
 
-            // 設置最後一個 <td> 的 rowspan 屬性
             const lastCell = cells[cells.length - 1];
             lastCell.rowSpan = 2;
 
-            // 設置背景顏色
-            const color = index % 2 === 0 ? "#d6e9ca" : "#ffffff";
+            const color = index % 2 === 0 ? "#e3eef9" : "#ffffff";
             row.style.backgroundColor = color;
             newRow.style.backgroundColor = color;
           }
-        });
-
-        // 設置背景顏色
-        const allRows = table.querySelectorAll("tr:not(:first-child)");
-        allRows.forEach((row, index) => {
-          const color = Math.floor(index / 2) % 2 === 0 ? "#d6e9ca" : "#ffffff";
-          row.style.backgroundColor = color;
         });
       });
     </script>
