@@ -1,44 +1,37 @@
-fetch('./chat.json')
+// script.js
+fetch('./chat.js')
     .then(response => response.json())
     .then(conversations => {
         const chatContainer = document.getElementById('chat-container');
         let lastDate = '';
 
-        conversations.forEach(conversation => {
-            if (conversation.date !== lastDate) {
-                const dateElement = document.createElement('div');
-                dateElement.classList.add('date');
-                dateElement.textContent = `${conversation.date} (${conversation.day})`;
-                chatContainer.appendChild(dateElement);
-                lastDate = conversation.date;
-            }
+        conversations["241225"].forEach(conversation => {
+            const { time, kr, tr } = conversation;
 
-            conversation.messages.forEach(message => {
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
+            // 創建外層容器
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
 
-                const senderElement = document.createElement('div');
-                senderElement.classList.add('sender');
-                senderElement.textContent = message.sender;
+            // 添加韓文對話
+            const krSpan = document.createElement('span');
+            krSpan.className = 'kr';
+            krSpan.textContent = kr;
+            messageDiv.appendChild(krSpan);
 
-                const timeElement = document.createElement('div');
-                timeElement.classList.add('time');
-                timeElement.textContent = message.time;
+            // 添加翻譯
+            const trSpan = document.createElement('span');
+            trSpan.className = 'tr';
+            trSpan.textContent = tr;
+            messageDiv.appendChild(trSpan);
 
-                const contentElement = document.createElement('div');
-                contentElement.classList.add('content');
-                contentElement.textContent = message.content;
+            // 添加時間
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'time';
+            timeSpan.textContent = time;
+            messageDiv.appendChild(timeSpan);
 
-                if (message.sender === "楊惠瓘") {
-                    messageElement.classList.add('right');
-                }
-
-                messageElement.appendChild(senderElement);
-                messageElement.appendChild(timeElement);
-                messageElement.appendChild(contentElement);
-
-                chatContainer.appendChild(messageElement);
-            });
+            // 插入到聊天容器中
+            chatContainer.appendChild(messageDiv);
         });
     })
     .catch(error => console.error('Error loading chat data:', error));

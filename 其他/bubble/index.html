@@ -5,46 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>聊天對話室</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+      * {
+        font-family: "Noto Sans", serif;
       }
       .chat-container {
-        width: 80%;
-        max-width: 800px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
         margin: 20px auto;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
-      .date {
-        text-align: center;
-        font-weight: bold;
-        margin: 20px 0;
-      }
+
       .message {
         margin-bottom: 15px;
         padding: 10px;
-        border-radius: 5px;
-        background-color: #e1ffc7;
-        max-width: 70%;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
-      .message.right {
-        background-color: #c7e1ff;
-        margin-left: auto;
-        text-align: right;
-      }
-      .message .sender {
-        font-weight: bold;
-      }
-      .message .time {
-        color: #888;
-        font-size: 0.9em;
-      }
-      .message .content {
+
+      .time {
+        font-size: 0.8em;
+        color: #999;
+        display: block;
+        /* margin-bottom: 5px; */
         margin-top: 5px;
+      }
+
+      .kr {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #333;
+        display: block;
+        font-family: "Noto Sans Korean", cursive;
+      }
+
+      .tr {
+        font-size: 1em;
+        color: #666;
+        display: block;
+        /* margin-top: 5px; */
       }
     </style>
   </head>
